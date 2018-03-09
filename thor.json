@@ -25,7 +25,7 @@
         "containers": [
           {
             "name": "thor",
-            "image": "thor:1.0",
+            "image": "thor:latest",
             "ports": [
               {
                 "containerPort": 80,
