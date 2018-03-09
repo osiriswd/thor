@@ -6,5 +6,6 @@ COPY 404.html /var/lib/nginx/html/
 COPY default.conf.template /etc/nginx/conf.d/
 COPY thor /etc/nginx/thor
 COPY run.sh /usr/local/bin/run.sh
+RUN chmod 755 /usr/local/bin/run.sh
 EXPOSE 80
 CMD ["run.sh"]
