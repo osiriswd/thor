@@ -11,3 +11,6 @@ http://THOR_IP:THOR_PORT/namespaces/NAMESPACE_NAME/services/SERVICE_NAME/(your-s
 And you can also access kubernete api with Thor too:
 
 http://THOR_IP:THOR_PORT/manage/
+
+For single port kubernetes services, thor will attemp proxy_pass to the ClusterIP:Port.
+For multiple ports services, thor looks for the field .spec.ports[].name="http" and proxy_pass to it, otherwise it will proxy_pass to the first port in kubernetes services.
