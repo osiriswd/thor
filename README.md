@@ -1,4 +1,6 @@
 # Thor
+Dynamic discover and proxy to Kubernetes services, cache kubernetes apiserver's response in Nginx shared dict.
+
 Build image:
 
 docker build -t thor .
