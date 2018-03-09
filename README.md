@@ -10,7 +10,7 @@ http://${NODE_IP}:${THOR_PORT}/namespaces/${NAMESPACE_NAME}/services/${SERVICE_N
 
 like:
 
-http://10.0.29.21:31599/namespaces/kube-system/services/kubernetes-dashboard
+http://10.0.29.21:31599/namespaces/kube-system/services/kubernetes-dashboard/
 
 And you can also access kubernete api with Thor too:
 
