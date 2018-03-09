@@ -8,6 +8,10 @@ Find the NodePort of thor via kubernetes-dashboard, then you can access any PODs
 
 http://${NODE_IP}:${THOR_PORT}/namespaces/${NAMESPACE_NAME}/services/${SERVICE_NAME}/(your-service-handler)
 
+like:
+
+http://10.0.29.21:31599/namespaces/kube-system/services/kubernetes-dashboard
+
 And you can also access kubernete api with Thor too:
 
 http://${NODE_IP}:${THOR_PORT}/manage/
