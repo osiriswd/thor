@@ -1,4 +1,4 @@
-# thor
+# Thor
 Build image:
 
 docker build -t thor .
@@ -12,7 +12,7 @@ like:
 
 http://10.0.29.21:31599/namespaces/kube-system/services/kubernetes-dashboard/
 
-And you can also access kubernete api with Thor too:
+And you can also access kubernete api with Thor too(don't forget adding the http header "Authorization: Bearer $API_TOKEN"):
 
 http://${NODE_IP}:${THOR_PORT}/manage/
 
