@@ -1,0 +1,48 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "extensions/v1beta1",
+  "metadata": {
+    "name": "thor",
+    "namespace": "default",
+    "labels": {
+      "app": "thor"
+    }
+  },
+  "spec": {
+    "replicas": 2,
+    "selector": {
+      "matchLabels": {
+        "app": "thor"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "thor"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "thor",
+            "image": "thor:1.0",
+            "ports": [
+              {
+                "containerPort": 80,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {
+              "limits": {
+                "cpu": "100m"
+              }
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+      }
+    }
+  }
+}
