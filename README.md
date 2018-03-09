@@ -1,5 +1,5 @@
 # Thor
-Dynamic discover and proxy to Kubernetes services, store kubernetes apiserver's response in Nginx shared dict for cache.
+Dynamic discover and proxy to Kubernetes services, stored kubernetes apiserver's response in Nginx shared_dict as caches.
 
 Build image:
 
