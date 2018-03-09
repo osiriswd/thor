@@ -20,6 +20,6 @@ http://${NODE_IP}:${THOR_PORT}/manage/
 
 ----------------------------
 Name the port "http" in your kubernetes services as a convenience.
-For single port kubernetes services, thor will attemp proxy_pass to the ClusterIP:Port.
-For multiple ports services, thor looks for the field .spec.ports[].name="http" in kubernetes services and proxy_pass to it, otherwise it will proxy_pass to the first port in kubernetes services' .spec.ports array.
+For single port kubernetes services, thor attemps proxy_pass to the ClusterIP:Port.
+For multiple ports services, thor looks for the field .spec.ports[].name="http" in kubernetes services and proxy_pass to it, otherwise it will proxy_pass to the first port listed in kubernetes services' .spec.ports array.
 
