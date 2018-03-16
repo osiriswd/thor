@@ -1,12 +1,13 @@
 # Thor
 Instead of using Ingress, Thor dynamically discover and proxy to Kubernetes services, kubernetes apiserver's response will be stored in Nginx shared_dict as caches.
 
-Build image:
+1. Build image:
 
 docker build -t thor .
 
-Create kubernetes deployments with thor.json, create services with thor-svc.json.
-Find the NodePort of thor via kubernetes-dashboard, then you can access any HTTP services with Thor:
+2. Create kubernetes deployments with thor.json.
+3. create services with thor-svc.json.
+4. Find the NodePort of thor via kubernetes-dashboard, then you can access any HTTP services with Thor:
 
 http://${NODE_IP}:${THOR_PORT}/namespaces/${NAMESPACE_NAME}/services/${SERVICE_NAME}/(your-service-handler)
 
