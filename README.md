@@ -1,5 +1,5 @@
 # Thor
-Dynamic discover and proxy to Kubernetes services, stored kubernetes apiserver's response in Nginx shared_dict as caches.
+Instead of using Ingress, Thor dynamically discover and proxy to Kubernetes services, stored kubernetes apiserver's response in Nginx shared_dict as caches.
 
 Build image:
 
