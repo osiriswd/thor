@@ -5,12 +5,14 @@ How to use:
 
 1. Build image:
 
-  docker build -t thor .
+    docker build -t thor .
 
-2. Create kubernetes deployments with thor.json.
+2. Create kubernetes deployments with thor.json:
+
     kubectl create -f thor.json
 
-3. create kubernetes services with thor-svc.json.
+3. create kubernetes services with thor-svc.json:
+
     kubectl create -f thor-svc.json
     
 4. Find the NodePort of thor via kubernetes-dashboard, then you can access any HTTP services with Thor:
