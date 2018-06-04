@@ -10,14 +10,19 @@ local args = {}
 local args_len = 1
 
 function find_http_port(t)
+		local http_ports={}
+		local port_name="http"
         local http_port=t["spec"]["ports"][1]["port"]
         for i=1,table.maxn(t["spec"]["ports"]) do
-                if t["spec"]["ports"][i]["name"] == "http" then
+                if (t["spec"]["ports"][i]["name"] == "http") or (t["spec"]["ports"][i]["name"] == "https") then
                         http_port = t["spec"]["ports"][i]["port"]
+						port_name = t["spec"]["ports"][i]["name"]
                         i = i+1
                 end
         end
-        return http_port
+		http_ports["name"]=port_name
+		http_ports["port"]=http_port
+        return http_ports
 end
 
 function get_cache(api_end,exptime)
@@ -91,7 +96,8 @@ else
                                         if api_handler == "" then        
                                                         api_handler = '/'
                                         end
-                                        local upstream = svc_t["spec"]["clusterIP"]..":"..find_http_port(svc_t)
+					local http_ports = find_http_port(svc_t)
+                                        local upstream = http_ports["name"].."://"..svc_t["spec"]["clusterIP"]..":"..http_ports["port"]
                                         ngx.var.http_backend = upstream
                                         ngx.var.http_handler = api_handler
                                 end
