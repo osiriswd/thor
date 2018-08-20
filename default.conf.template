@@ -5,6 +5,9 @@ lua_shared_dict k8sservices 40m;
 upstream k8s_api {
 server ${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT};
 }
+upstream etcd {
+server etcd.kubernetes:2379;
+}
 server {
         listen 80;
         set $BASE_PATH /etc/nginx/thor;
@@ -23,6 +26,10 @@ server {
 			proxy_pass https://k8s_api/;
         }
 
+        location /etcd/ {
+                        proxy_pass http://etcd/;
+        }
+	
         location / {
 			default_type "text/html";
 			set $http_backend "http://127.0.0.1";
